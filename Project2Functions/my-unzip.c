@@ -37,7 +37,7 @@ int main(int argc, char *argv[]) {
     for (int i = 1; i < argc; i++) {
         FILE *files = fopen(argv[i], "rb"); // Open in binary mode.
         if (files == NULL) {
-            filesrintf(stderr, "my-unzip: cannot open file\n");
+            fprintf(stderr, "my-unzip: cannot open file\n");
             return 1;
         }
         //Decompress the file
