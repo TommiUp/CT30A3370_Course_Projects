@@ -32,18 +32,21 @@ int main(int argc, char *argv[]) {
         fprintf(stderr, "my-unzip: file1 [file2 ...]\n");
         return 1;
     }
+
+    int ErrorOccured=0;
     
     // Process each file.
     for (int i = 1; i < argc; i++) {
         FILE *files = fopen(argv[i], "rb"); // Open in binary mode.
         if (files == NULL) {
-            fprintf(stderr, "my-unzip: cannot open file\n");
-            return 1;
+            fprintf(stderr, "my-unzip: cannot open file %s\n", argv[i]);
+            int ErrorOccured=1;
+            continue;
         }
         //Decompress the file
         decompressFile(files);
         fclose(files);
     }
     
-    return 0;
+    return ErrorOccured ? 1 : 0;
 }
