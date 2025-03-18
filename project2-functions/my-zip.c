@@ -57,7 +57,7 @@ int main(int argc, char *argv[]) {
         FILE *fp = fopen(argv[i], "r"); //Text mode
         if (fp == NULL) {
             fprintf(stderr, "my-zip: cannot open file %s\n", argv[i]);
-            ErrorOccured =1;
+            ErrorOccured = 1;
             continue;
         }
 
@@ -74,5 +74,5 @@ int main(int argc, char *argv[]) {
         fwrite(&currentChar, sizeof(char), 1, stdout);
     }
     
-    return 0;
+    return ErrorOccured ? 1 : 0;
 }
