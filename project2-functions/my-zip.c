@@ -49,14 +49,16 @@ int main(int argc, char *argv[]) {
     int runCount = 0;       // Count of consecutive occurrences.
     int currentChar = 0;    // The current character.
     int firstChar = 1;      // Flag: 1 means no character processed yet.
+    int ErrorOccured = 0; 
     
     // Process each file as a continuous stream.
     //Files are processed as one stream of text
     for (int i = 1; i < argc; i++) {
         FILE *fp = fopen(argv[i], "r"); //Text mode
         if (fp == NULL) {
-            fprintf(stderr, "my-zip: cannot open file\n");
-            return 1;
+            fprintf(stderr, "my-zip: cannot open file\n", argv[i]);
+            ErrorOccured =1;
+            continue;
         }
 
         //Process the file
