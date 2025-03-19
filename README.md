@@ -11,5 +11,5 @@ Sisältää seuraavat työkalut:
 - **my-zip** – Pakkaa tiedoston käyttäen run-length encoding (RLE) -menetelmää.
 - **my-unzip** – Purkaa RLE-pakatun tiedoston alkuperäiseen muotoon.
 
-### **Projekti 3: Parallel Zip**
+### **Projekti 5: Parallel Zip**
 - Toteuttaa rinnakkaisen tiedostonpakkausmenetelmän hyödyntäen POSIX-säikeitä.
